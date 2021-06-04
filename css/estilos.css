@@ -101,3 +101,8 @@
     font-family: 'Sigmar One', cursive;
     text-align: center;
 }
+
+.carroImg {
+    height: 400px;
+    width: 600px;
+}

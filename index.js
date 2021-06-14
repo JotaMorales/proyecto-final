@@ -23,6 +23,7 @@ alert('El valor de cada cuota es $' + (cuotas(totalIngresado, cuotasIngresados))
 const ArrayProductos = [];
 
 
+
 class Producto {
     constructor(marca, temporada, talle, stock, precio) {
         this.marca = marca;
@@ -67,26 +68,30 @@ let producto25 = new Producto("camiseta Campus Navallo-Agullo", 2021, 3, true, 2
 let producto26 = new Producto("camiseta Campus Navallo-Agullo", 2021, 4, true, 2199.00);
 let producto27 = new Producto("camiseta Campus Navallo-Agullo", 2021, 2, false, 2199.00);
 
-ArrayProductos.push(producto1)
-ArrayProductos.push(producto2)
-ArrayProductos.push(producto3)
-ArrayProductos.push(producto4)
-ArrayProductos.push(producto5)
-ArrayProductos.push(producto6)
-ArrayProductos.push(producto7)
-ArrayProductos.push(producto8)
-ArrayProductos.push(producto9)
-ArrayProductos.push(producto10)
-ArrayProductos.push(producto11)
-ArrayProductos.push(producto12)
-ArrayProductos.push(producto13)
-ArrayProductos.push(producto14)
+ArrayProductos.push(producto1);
+ArrayProductos.push(producto2);
+ArrayProductos.push(producto3);
+ArrayProductos.push(producto4);
+ArrayProductos.push(producto5);
+ArrayProductos.push(producto6);
+ArrayProductos.push(producto7);
+ArrayProductos.push(producto8);
+ArrayProductos.push(producto9);
+ArrayProductos.push(producto10);
+ArrayProductos.push(producto11);
+ArrayProductos.push(producto12);
+ArrayProductos.push(producto13);
+ArrayProductos.push(producto14);
 
 
 
 
 
 console.log(ArrayProductos);
+const nuevoArray = ArrayProductos.length;
+console.log(nuevoArray);
+
+
 producto1.agregar(Producto);
 
 ArrayProductos.sort(function(a, b) {

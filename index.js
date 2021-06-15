@@ -93,10 +93,12 @@ console.log(nuevoArray);
 
 
 const off = [producto7, producto8, producto9, producto19, producto20, producto21];
+const offSale = off.map(precios => precios.precio -= 199);
+console.log(offSale);
 console.log(off.length);
 
 off.sort(function(a, b) {
-    return a.talle - b.talle;
+    return b.talle - a.talle;
 })
 const encontrado = off.find(elemento => elemento.precio < 2100);
 console.log(off);

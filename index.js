@@ -101,7 +101,14 @@ off.sort(function(a, b) {
     return b.talle - a.talle;
 })
 const encontrado = off.find(elemento => elemento.precio < 2100);
-console.log(off);
+console.log(encontrado);
+
+const talleEncontrado = ArrayProductos.find(function(item) {
+    const talleBuscado = item.talle == 4;
+
+    console.log(talleBuscado);
+
+})
 
 
 

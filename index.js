@@ -91,6 +91,14 @@ console.log(ArrayProductos);
 const nuevoArray = ArrayProductos.length;
 console.log(nuevoArray);
 
+const off = [producto7, producto8, producto9, producto19, producto20, producto21];
+//La función parámetro generalmente es una función flecha sin cuerpo.
+const encontrado = off.find(elemento => elemento > 3); //Encuentra 4
+console.log(off);
+
+
+
+
 
 producto1.agregar(Producto);
 

@@ -34,8 +34,8 @@ html {
 }
 
 .carritoCompras {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .pasable {
@@ -145,4 +145,12 @@ html {
 .tarjeta {
     padding: 5px;
     margin: 5px;
+}
+
+.contenedor-carritocliente {
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    padding: 40px;
+    margin: 10px auto 150px;
 }

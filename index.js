@@ -103,7 +103,12 @@ off.sort(function(a, b) {
 const encontrado = off.find(elemento => elemento.precio < 2100);
 console.log(encontrado);
 
-const talleEncontrado = ArrayProductos.find(function(item) {
+let preguntaDeTalle = parseInt(prompt("Cual es tu talle?"));
+if (preguntaDeTalle == 2) {
+    alert("Hay stock")
+
+}
+const ingresado = ArrayProductos.find(function(item) {
     const talleBuscado = item.talle == 4;
 
     console.log(talleBuscado);
@@ -119,3 +124,99 @@ producto12.agregar(Producto);
 ArrayProductos.sort(function(a, b) {
     return a.precio - b.precio
 })
+
+const CatalogoProductos = [{
+        titulo: "Camiseta Cardinals",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/cardinals.jpeg ",
+    },
+    {
+        titulo: "Camiseta Estrella",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1899.00',
+        img: "./img/estrella.jpeg "
+    },
+    {
+        titulo: "Camiseta Velocidad y Resistencia Vintage",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/velocidad.jpeg "
+
+    },
+    {
+        titulo: "Camiseta Velocidad y Resistencia",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/velocidad2.jpeg "
+    }, {
+        titulo: "Camiseta Bahiense del Norte",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/bdn.jpeg "
+    }, {
+        titulo: "Camiseta Reconquista",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1899.00',
+        img: "./img/reconquista.jpeg "
+    }, {
+        titulo: "Camiseta Fireballs",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/Fireballs.jpg"
+    }, {
+        titulo: "Camiseta Academia Muresull",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/futbol1.jpeg "
+    },
+    {
+        titulo: "Camiseta Campus Navallo-Agullo",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/FullSizeRender-1.jpg "
+    }
+];
+
+const section = document.querySelector('.contenedor-catalogo');
+
+console.log(section);
+
+for (const element of CatalogoProductos) {
+
+
+    let div = document.createElement('div');
+
+    div.className = 'contenedor-carritocliente';
+
+    div.innerHTML = `
+    <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
+    <h2>${element.titulo}</h2>
+    <p>${element.precio}</p>
+    <button class="btn btn-danger">Agregar al Carrito</button>`
+
+    console.log(div);
+
+    section.appendChild(div);
+
+
+
+}

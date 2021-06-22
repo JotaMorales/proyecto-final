@@ -154,3 +154,7 @@ html {
     padding: 40px;
     margin: 10px 30px 150px;
 }
+
+.talle-input {
+    width: 55px;
+}

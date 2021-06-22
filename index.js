@@ -210,6 +210,7 @@ for (const element of CatalogoProductos) {
     div.innerHTML = `
     <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
     <h2>${element.titulo}</h2>
+    <input class="talle-input" placeholder="Talle" type="number">
     <p>${element.precio}</p>
     <button class="btn btn-danger">Agregar al Carrito</button>`
 

@@ -68,6 +68,37 @@ let producto25 = new Producto("camiseta Campus Navallo-Agullo", 2021, 3, true, 2
 let producto26 = new Producto("camiseta Campus Navallo-Agullo", 2021, 4, true, 2199.00);
 let producto27 = new Producto("camiseta Campus Navallo-Agullo", 2021, 2, false, 2199.00);
 
+
+
+// class Carrito {
+//     comprarProducto(e) {
+//         e.preventDefault();
+//         if (e.target.classList.contains('agregar-carrito')) {
+//             const producto = e.target.parentElement.parentElement;
+//             // this.leerDatosProductos(producto);
+//             console.log(producto);
+//         }
+//     }
+// }
+
+// const carro = new Carrito();
+// const carrito = document.getElementsById('carrito');
+// const productos = document.getElementsById('lista-productos');
+// const listaProductos = document.querySelector('#lista-carrito-tbody');
+
+// cargarEventos();
+
+
+// function cargarEventos() {
+//     productos.addEventListener('click', (e) => (carro.comprarProducto(e)));
+// }
+
+
+
+
+
+
+
 ArrayProductos.push(producto1);
 ArrayProductos.push(producto2);
 ArrayProductos.push(producto3);
@@ -126,6 +157,7 @@ ArrayProductos.sort(function(a, b) {
 })
 
 const CatalogoProductos = [{
+        id: 1,
         titulo: "Camiseta Cardinals",
         temporada: 2021,
         talle: 3,
@@ -134,6 +166,7 @@ const CatalogoProductos = [{
         img: "./img/cardinals.jpeg ",
     },
     {
+        id: 2,
         titulo: "Camiseta Estrella",
         temporada: 2020,
         talle: 3,
@@ -142,6 +175,7 @@ const CatalogoProductos = [{
         img: "./img/estrella.jpeg "
     },
     {
+        id: 3,
         titulo: "Camiseta Velocidad y Resistencia Vintage",
         temporada: 2019,
         talle: 3,
@@ -151,6 +185,7 @@ const CatalogoProductos = [{
 
     },
     {
+        id: 4,
         titulo: "Camiseta Velocidad y Resistencia",
         temporada: 2020,
         talle: 3,
@@ -158,6 +193,7 @@ const CatalogoProductos = [{
         precio: '$ 1799.00',
         img: "./img/velocidad2.jpeg "
     }, {
+        id: 5,
         titulo: "Camiseta Bahiense del Norte",
         temporada: 2021,
         talle: 3,
@@ -165,6 +201,7 @@ const CatalogoProductos = [{
         precio: '$ 2199.00',
         img: "./img/bdn.jpeg "
     }, {
+        id: 6,
         titulo: "Camiseta Reconquista",
         temporada: 2020,
         talle: 3,
@@ -172,6 +209,7 @@ const CatalogoProductos = [{
         precio: '$ 1899.00',
         img: "./img/reconquista.jpeg "
     }, {
+        id: 7,
         titulo: "Camiseta Fireballs",
         temporada: 2019,
         talle: 3,
@@ -179,6 +217,7 @@ const CatalogoProductos = [{
         precio: '$ 1799.00',
         img: "./img/Fireballs.jpg"
     }, {
+        id: 8,
         titulo: "Camiseta Academia Muresull",
         temporada: 2019,
         talle: 3,
@@ -187,6 +226,7 @@ const CatalogoProductos = [{
         img: "./img/futbol1.jpeg "
     },
     {
+        id: 9,
         titulo: "Camiseta Campus Navallo-Agullo",
         temporada: 2021,
         talle: 3,
@@ -212,7 +252,7 @@ for (const element of CatalogoProductos) {
     <h2>${element.titulo}</h2>
     <input class="talle-input" placeholder="Talle" type="number">
     <p>${element.precio}</p>
-    <button class="btn btn-danger">Agregar al Carrito</button>`
+    <button id=${element.id} class="btn btn-danger agregarCarrito">Agregar al Carrito</button>`
 
     console.log(div);
 
@@ -221,3 +261,113 @@ for (const element of CatalogoProductos) {
 
 
 }
+
+const ListaCompras = [];
+const buttons = document.getElementsByClassName('agregarCarrito');
+console.log(ListaCompras);
+
+for (const button of buttons) {
+
+    button.addEventListener('click', (event) => {
+        const buttonClickeado = event.target;
+        console.log(buttonClickeado.id);
+        const itemPresionado = CatalogoProductos.find((id) => id.id === parseInt(buttonClickeado.id));
+        localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
+
+        itemPresionado.agregado = true;
+
+        console.log('Item agregado');
+
+        ListaCompras.push(buttonClickeado);
+
+    });
+
+}
+
+const btnGuardar = document.getElementById('btnGuardar');
+
+btnGuardar.addEventListener('click', () => {
+    // ambas condiciones son iguales
+    // const alumnoPresente = alummnos.filter((alumnoItem) => alumnoItem.presente === true);
+    const itemAgregado = ListaCompras.filter((id) => id.agregado);
+
+    console.log(itemAgregado);
+    // PENDIENTE PISAR ALUMNOS YA PRESENTES
+    localStorage.setItem('itemAgregado', JSON.stringify(itemAgregado));
+
+    const containerProductos = document.getElementById('containerProductos');
+
+    for (const item of CatalogoProductos) {
+        const element = document.createElement('div');
+        element.innerHTML = `
+    <div class="card" style="width: 200px; text-align: center; margin: auto; background-color: grey">
+      <div class="card-body">
+      <img class="tarjeta" src=${item.img}>
+        <h3 class="card-title">${item.titulo}</h3>
+        <p>${item.precio}</p>
+      </div>
+    </div>`;
+        containerProductos.appendChild(element);
+    }
+});
+
+
+// const div = document.querySelector('.containerProductos');
+
+// console.log(div);
+
+// function carroHTML() {
+
+//     for (const element of ListaCompras) {
+
+
+//         let div = document.createElement('div');
+
+//         div.className = 'carrito';
+
+//         div.innerHTML = `
+//     <div>
+//         <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
+//         <h2>${element.titulo}</h2>
+//         <p>${element.precio}</p>
+//     </div>`
+
+//         console.log(div);
+
+//         div.appendChild(div);
+
+
+
+//     }
+// };
+
+// carroHTML();
+// const agregarCarrito = document.getElementById('agregarCarrito');
+
+// agregarCarrito.addEventListener('click', (event) => {
+//     const agregado = event.target;
+//     console.log(agregado);
+//     // ambas condiciones son iguales
+//     // const alumnoPresente = alummnos.filter((alumnoItem) => alumnoItem.presente === true);
+//     const itemPresionado = ListaCompras.filter((id) => id.agregado);
+
+//     console.log(itemPresionado);
+//     // PENDIENTE PISAR ALUMNOS YA PRESENTES
+//     localStorage.setItem('Item Agregado', JSON.stringify(itemPresionado));
+
+
+// });
+// for (const item of containerProductos) {
+
+//     const element = document.createElement('div');
+
+//     div.className = 'containerProductos';
+
+//     element.innerHTML = `
+// <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
+// <h2>${item.titulo}</h2>
+// <p>${item.precio}</p>`;
+
+
+//     containerProductos.appendChild(element);
+// }

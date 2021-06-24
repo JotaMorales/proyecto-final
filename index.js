@@ -284,15 +284,15 @@ for (const button of buttons) {
 
 }
 
+
 const btnGuardar = document.getElementById('btnGuardar');
 
 btnGuardar.addEventListener('click', () => {
-    // ambas condiciones son iguales
-    // const alumnoPresente = alummnos.filter((alumnoItem) => alumnoItem.presente === true);
+
     const itemAgregado = ListaCompras.filter((id) => id.agregado);
 
     console.log(itemAgregado);
-    // PENDIENTE PISAR ALUMNOS YA PRESENTES
+
     localStorage.setItem('itemAgregado', JSON.stringify(itemAgregado));
 
     const containerProductos = document.getElementById('containerProductos');
@@ -310,64 +310,3 @@ btnGuardar.addEventListener('click', () => {
         containerProductos.appendChild(element);
     }
 });
-
-
-// const div = document.querySelector('.containerProductos');
-
-// console.log(div);
-
-// function carroHTML() {
-
-//     for (const element of ListaCompras) {
-
-
-//         let div = document.createElement('div');
-
-//         div.className = 'carrito';
-
-//         div.innerHTML = `
-//     <div>
-//         <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
-//         <h2>${element.titulo}</h2>
-//         <p>${element.precio}</p>
-//     </div>`
-
-//         console.log(div);
-
-//         div.appendChild(div);
-
-
-
-//     }
-// };
-
-// carroHTML();
-// const agregarCarrito = document.getElementById('agregarCarrito');
-
-// agregarCarrito.addEventListener('click', (event) => {
-//     const agregado = event.target;
-//     console.log(agregado);
-//     // ambas condiciones son iguales
-//     // const alumnoPresente = alummnos.filter((alumnoItem) => alumnoItem.presente === true);
-//     const itemPresionado = ListaCompras.filter((id) => id.agregado);
-
-//     console.log(itemPresionado);
-//     // PENDIENTE PISAR ALUMNOS YA PRESENTES
-//     localStorage.setItem('Item Agregado', JSON.stringify(itemPresionado));
-
-
-// });
-// for (const item of containerProductos) {
-
-//     const element = document.createElement('div');
-
-//     div.className = 'containerProductos';
-
-//     element.innerHTML = `
-// <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
-// <h2>${item.titulo}</h2>
-// <p>${item.precio}</p>`;
-
-
-//     containerProductos.appendChild(element);
-// }

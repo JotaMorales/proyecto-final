@@ -242,8 +242,14 @@ for (const element of CatalogoProductos) {
 const ListaCompras = [];
 const buttons = document.getElementsByClassName('agregarCarrito');
 console.log(ListaCompras);
+const guardarLocal = (clave, valor) => {
+    localStorage.setItem(clave, valor);
+    guardarLocal("ListaCompras", JSON.stringify(ListaCompras));
+
+};
 
 for (const button of buttons) {
+
 
     button.addEventListener('click', (event) => {
         const buttonClickeado = event.target;
@@ -258,6 +264,7 @@ for (const button of buttons) {
         ListaCompras.push(buttonClickeado);
 
     });
+    guardarLocal(button.id, JSON.stringify(button));
 
 }
 
@@ -268,10 +275,10 @@ btnGuardar.addEventListener('click', () => {
 
     const itemAgregado = ListaCompras.filter((id) => id.agregado);
 
+
     console.log(itemAgregado);
 
     localStorage.setItem('itemAgregado', JSON.stringify(itemAgregado));
-    localStorage.setItem('itemAgregado', JSON.stringify(ListaCompras));
 
     const containerProductos = document.getElementById('containerProductos');
 

@@ -1,4 +1,5 @@
-let respuesta = prompt('Llego el HOT SALE!, encontraste lo que buscabas?');
+let respuesta
+    // let respuesta = prompt('Llego el HOT SALE!, encontraste lo que buscabas?');
 console.log(respuesta);
 if (respuesta == 'no') {
     alert('Que estas esperando!?');
@@ -16,9 +17,9 @@ if (respuesta == 'si') {
 }
 
 
-let totalIngresado = parseInt(prompt('¿Cual es el valor del producto?'));
-let cuotasIngresados = parseInt(prompt('¿Cuantas cuotas quieres?'));
-alert('El valor de cada cuota es $' + (cuotas(totalIngresado, cuotasIngresados)).toFixed(2));
+let totalIngresado //= parseInt(prompt('¿Cual es el valor del producto?'));
+let cuotasIngresados //= parseInt(prompt('¿Cuantas cuotas quieres?'));
+    //alert('El valor de cada cuota es $' + (cuotas(totalIngresado, cuotasIngresados)).toFixed(2));
 
 const ArrayProductos = [];
 
@@ -37,7 +38,9 @@ class Producto {
             console.log(producto + ": " + this[producto]);
         }
     }
+
 }
+
 
 
 let producto1 = new Producto("camiseta Cardinals", 2021, 3, true, 2199.00);
@@ -69,35 +72,7 @@ let producto26 = new Producto("camiseta Campus Navallo-Agullo", 2021, 4, true, 2
 let producto27 = new Producto("camiseta Campus Navallo-Agullo", 2021, 2, false, 2199.00);
 
 
-
-// class Carrito {
-//     comprarProducto(e) {
-//         e.preventDefault();
-//         if (e.target.classList.contains('agregar-carrito')) {
-//             const producto = e.target.parentElement.parentElement;
-//             // this.leerDatosProductos(producto);
-//             console.log(producto);
-//         }
-//     }
-// }
-
-// const carro = new Carrito();
-// const carrito = document.getElementsById('carrito');
-// const productos = document.getElementsById('lista-productos');
-// const listaProductos = document.querySelector('#lista-carrito-tbody');
-
-// cargarEventos();
-
-
-// function cargarEventos() {
-//     productos.addEventListener('click', (e) => (carro.comprarProducto(e)));
-// }
-
-
-
-
-
-
+producto12.agregar(Producto);
 
 ArrayProductos.push(producto1);
 ArrayProductos.push(producto2);
@@ -113,6 +88,9 @@ ArrayProductos.push(producto11);
 ArrayProductos.push(producto12);
 ArrayProductos.push(producto13);
 ArrayProductos.push(producto14);
+
+
+
 
 
 
@@ -134,7 +112,7 @@ off.sort(function(a, b) {
 const encontrado = off.find(elemento => elemento.precio < 2100);
 console.log(encontrado);
 
-let preguntaDeTalle = parseInt(prompt("Cual es tu talle?"));
+let preguntaDeTalle //= parseInt(prompt("Cual es tu talle?"));
 if (preguntaDeTalle == 2) {
     alert("Hay stock")
 
@@ -150,7 +128,6 @@ const ingresado = ArrayProductos.find(function(item) {
 
 
 
-producto12.agregar(Producto);
 
 ArrayProductos.sort(function(a, b) {
     return a.precio - b.precio
@@ -294,6 +271,7 @@ btnGuardar.addEventListener('click', () => {
     console.log(itemAgregado);
 
     localStorage.setItem('itemAgregado', JSON.stringify(itemAgregado));
+    localStorage.setItem('itemAgregado', JSON.stringify(ListaCompras));
 
     const containerProductos = document.getElementById('containerProductos');
 
@@ -303,7 +281,7 @@ btnGuardar.addEventListener('click', () => {
     <div class="card" style="width: 200px; text-align: center; margin: auto; background-color: grey">
       <div class="card-body">
       <img class="tarjeta" src=${item.img}>
-        <h3 class="card-title">${item.titulo}</h3>
+        <h4 class="card-title">${item.titulo}</h4>
         <p>${item.precio}</p>
       </div>
     </div>`;

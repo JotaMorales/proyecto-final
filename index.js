@@ -244,7 +244,7 @@ const buttons = document.getElementsByClassName('agregarCarrito');
 console.log(ListaCompras);
 const guardarLocal = (clave, valor) => {
     localStorage.setItem(clave, valor);
-    guardarLocal("ListaCompras", JSON.stringify(ListaCompras));
+
 
 };
 
@@ -261,37 +261,85 @@ for (const button of buttons) {
 
         console.log('Item agregado');
 
-        ListaCompras.push(buttonClickeado);
+        ListaCompras.push(itemPresionado);
 
+
+        for (const itemPresionado of ListaCompras) {
+            $(".list-of-items").append(`<div class="contenedor-carrito-item">
+            <img class="imagenCarrito" src=${itemPresionado.img}
+            <h4>${itemPresionado.titulo}</h4>
+            <p class="precio">Precio: ${itemPresionado.precio}</p>
+            <p class="precio">${itemPresionado.temporada}</p>
+            <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
+
+
+            </div>`)
+
+            $("#btn1").click(() => {
+
+                $(".contenedor-carrito-item").trigger("remove");
+            });
+
+
+        }
     });
     guardarLocal(button.id, JSON.stringify(button));
 
-}
+};
+const productos = JSON.parse(localStorage.getItem('lista'));
 
 
-const btnGuardar = document.getElementById('btnGuardar');
-
-btnGuardar.addEventListener('click', () => {
-
-    const itemAgregado = ListaCompras.filter((id) => id.agregado);
 
 
-    console.log(itemAgregado);
 
-    localStorage.setItem('itemAgregado', JSON.stringify(itemAgregado));
 
-    const containerProductos = document.getElementById('containerProductos');
 
-    for (const item of CatalogoProductos) {
-        const element = document.createElement('div');
-        element.innerHTML = `
-    <div class="card" style="width: 200px; text-align: center; margin: auto; background-color: grey">
-      <div class="card-body">
-      <img class="tarjeta" src=${item.img}>
-        <h4 class="card-title">${item.titulo}</h4>
-        <p>${item.precio}</p>
-      </div>
-    </div>`;
-        containerProductos.appendChild(element);
-    }
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const btnGuardar = document.getElementById('btnGuardar');
+
+// btnGuardar.addEventListener('click', () => {
+
+//     const itemAgregados = ListaCompras.filter((id) => id.agregado);
+
+
+//     console.log(itemAgregados);
+
+//     localStorage.setItem('itemAgregados', JSON.stringify(itemAgregados));
+
+//     const itemCarrito = JSON.parse(localStorage.getItem('itemAgregados'));
+//     console.log(itemCarrito);
+
+// const containerProductos = document.getElementById('containerProductos');
+
+// for (const item of CatalogoProductos) {
+//     const element = document.createElement('div');
+//     element.innerHTML = `
+//             <div class="card" style="width: 200px; text-align: center; margin: auto; background-color: grey">
+//               <div class="card-body">
+//               <img class="tarjeta" src=${item.img}>
+//                 <h4 class="card-title">${item.titulo}</h4>
+//                 <p>${item.precio}</p>
+//               </div>
+//             </div>`;
+//     containerProductos.appendChild(element);
+// }

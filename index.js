@@ -278,6 +278,7 @@ for (const button of buttons) {
             $("#btn1").click(() => {
 
                 $(".contenedor-carrito-item").trigger("remove");
+                console.log("#btn1");
             });
 
 

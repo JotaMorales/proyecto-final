@@ -162,17 +162,30 @@ html {
 }
 
 .imagenCarrito {
+    margin-left: 50px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.contenedor-carrito-item {
+.card {
+    width: 180px;
+    height: 180px;
+    font-size: 12px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* .contenedor-carrito-item {
     width: 100px;
     height: 120px;
     font-size: 12px;
-}
+    margin: 10px;
+    padding: 10px;
+} */
 
 .cart-title {
     text-align: center;

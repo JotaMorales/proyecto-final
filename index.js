@@ -265,7 +265,7 @@ for (const button of buttons) {
 
 
         for (const itemPresionado of ListaCompras) {
-            $(".list-of-items").append(`<div class="contenedor-carrito-item">
+            $(".list-of-items").append(`<div class="contenedor-carrito-item card">
             <img class="imagenCarrito" src=${itemPresionado.img}
             <h4>${itemPresionado.titulo}</h4>
             <p class="precio">Precio: ${itemPresionado.precio}</p>

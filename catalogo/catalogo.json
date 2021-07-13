@@ -1,0 +1,79 @@
+[{
+        "id": 1,
+        "titulo": "Camiseta Cardinals",
+        "temporada": 2021,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 2199.00",
+        "img": "./img/cardinals.jpeg "
+    },
+    {
+        "id": 2,
+        "titulo": "Camiseta Estrella",
+        "temporada": 2020,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 1899.00",
+        "img": "./img/estrella.jpeg "
+    },
+    {
+        "id": 3,
+        "titulo": "Camiseta Velocidad y Resistencia Vintage",
+        "temporada": 2019,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 2199.00",
+        "img": "./img/velocidad.jpeg "
+
+    },
+    {
+        "id": 4,
+        "titulo": "Camiseta Velocidad y Resistencia",
+        "temporada": 2020,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 1799.00",
+        "img": "./img/velocidad2.jpeg "
+    }, {
+        "id": 5,
+        "titulo": "Camiseta Bahiense del Norte",
+        "temporada": 2021,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 2199.00",
+        "img": "./img/bdn.jpeg "
+    }, {
+        "id": 6,
+        "titulo": "Camiseta Reconquista",
+        "temporada": 2020,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 1899.00",
+        "img": "./img/reconquista.jpeg "
+    }, {
+        "id": 7,
+        "titulo": "Camiseta Fireballs",
+        "temporada": 2019,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 1799.00",
+        "img": "./img/Fireballs.jpg"
+    }, {
+        "id": 8,
+        "titulo": "Camiseta Academia Muresull",
+        "temporada": 2019,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 1799.00",
+        "img": "./img/futbol1.jpeg "
+    },
+    {
+        "id": 9,
+        "titulo": "Camiseta Campus Navallo-Agullo",
+        "temporada": 2021,
+        "talle": 3,
+        "stock": true,
+        "precio": "$ 2199.00",
+        "img": "./img/FullSizeRender-1.jpg "
+    }
+]

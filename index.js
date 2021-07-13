@@ -273,36 +273,34 @@ $.getJSON(jsonLocal, function(data, estado) {
 
 
     }
-});
-
-const ListaCompras = [];
-const buttons = document.getElementsByClassName('agregarCarrito');
-console.log(ListaCompras);
-const guardarLocal = (clave, valor) => {
-    localStorage.setItem(clave, valor);
-
-    for (const button of buttons) {
 
 
-        button.addEventListener('click', (event) => {
-            const buttonClickeado = event.target;
-            console.log(buttonClickeado.id);
-            const itemPresionado = CatalogoProductos.find((id) => id.id === parseInt(buttonClickeado.id));
-            localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
+    const ListaCompras = [];
+    const buttons = document.getElementsByClassName('agregarCarrito');
+    console.log(ListaCompras);
+    const guardarLocal = (clave, valor) => {
+        localStorage.setItem(clave, valor);
 
-            itemPresionado.agregado = true;
+        for (const button of buttons) {
+            button.addEventListener('click', (event) => {
+                const buttonClickeado = event.target;
+                console.log(buttonClickeado.id);
+                const itemPresionado = data.find((id) => id.id === parseInt(buttonClickeado.id));
+                localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
 
-            console.log('Item agregado');
+                itemPresionado.agregado = true;
 
-            ListaCompras.push(itemPresionado)
-        });
-        guardarLocal(button.id, JSON.stringify(button));
+                console.log('Item agregado');
+
+                ListaCompras.push(itemPresionado)
+            });
+            guardarLocal(button.id, JSON.stringify(button));
+        };
+
     };
 
-};
-
-for (const itemPresionado of ListaCompras) {
-    $(".container").append(`<div class="contenedor-carrito-item card">
+    for (const itemPresionado of ListaCompras) {
+        $(".list").append(`<div class="contenedor-carrito-item card">
             <img class="imagenCarrito" src=${itemPresionado.img}
             <h4>${itemPresionado.titulo}</h4>
             <p class="precio">Precio: ${itemPresionado.precio}</p>
@@ -312,15 +310,15 @@ for (const itemPresionado of ListaCompras) {
             
             </div>`)
 
-    $("#btn1").click(() => {
+        $("#btn1").click(() => {
 
-        $(".contenedor-carrito-item").trigger("remove");
-        console.log("#btn1");
-    });
+            $(".contenedor-carrito-item").trigger("remove");
+            console.log("#btn1");
+        });
 
 
-}
-
+    }
+});
 
 
 const productos = JSON.parse(localStorage.getItem('lista'));

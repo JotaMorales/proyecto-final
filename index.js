@@ -214,41 +214,44 @@ ArrayProductos.sort(function(a, b) {
 // ];
 
 const jsonLocal = "./catalogo/catalogo.json";
+
+// $.getJSON(jsonLocal, function(data, estado) {
+// if (estado === "success") {
+//     let misDatos = data;
+
+//     const hijos = $('.dato');
+//     console.log(hijos);
+
+//     for (const dato of misDatos) {
+//         $(".cont").append(`<div class="contenedor-carrito-item card dato">
+//         <img class="imagenCarrito" src=${dato.img}
+//         <h4>${dato.titulo}</h4>
+//         <p class="precio">Precio: ${dato.precio}</p>
+//         <p class="precio">${dato.temporada}</p>
+//         <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
+
+
+//         </div>`)
+
+//         $("#btn1").click(() => {
+
+//             $(".contenedor-carrito-item").trigger("remove");
+//             console.log("#btn1");
+//         });
+
+
+
+//     }
+
+// };
+
+const section = document.querySelector('.contenedor-catalogo');
+
+console.log(section);
+
 $.getJSON(jsonLocal, function(data, estado) {
-    if (estado === "success") {
-        let misDatos = data;
 
-        const hijos = $('.dato');
-        console.log(hijos);
-
-        for (const dato of misDatos) {
-            $(".cont").append(`<div class="contenedor-carrito-item card dato">
-            <img class="imagenCarrito" src=${dato.img}
-            <h4>${dato.titulo}</h4>
-            <p class="precio">Precio: ${dato.precio}</p>
-            <p class="precio">${dato.temporada}</p>
-            <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
-
-
-            </div>`)
-
-            $("#btn1").click(() => {
-
-                $(".contenedor-carrito-item").trigger("remove");
-                console.log("#btn1");
-            });
-
-
-
-        }
-
-    };
-
-    const section = document.querySelector('.contenedor-catalogo');
-
-    console.log(section);
-
-
+    let CatalogoProductos = data;
     for (const element of CatalogoProductos) {
 
 
@@ -278,48 +281,48 @@ console.log(ListaCompras);
 const guardarLocal = (clave, valor) => {
     localStorage.setItem(clave, valor);
 
+    for (const button of buttons) {
+
+
+        button.addEventListener('click', (event) => {
+            const buttonClickeado = event.target;
+            console.log(buttonClickeado.id);
+            const itemPresionado = CatalogoProductos.find((id) => id.id === parseInt(buttonClickeado.id));
+            localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
+
+            itemPresionado.agregado = true;
+
+            console.log('Item agregado');
+
+            ListaCompras.push(itemPresionado)
+        });
+        guardarLocal(button.id, JSON.stringify(button));
+    };
 
 };
 
-for (const button of buttons) {
-
-
-    button.addEventListener('click', (event) => {
-        const buttonClickeado = event.target;
-        console.log(buttonClickeado.id);
-        const itemPresionado = CatalogoProductos.find((id) => id.id === parseInt(buttonClickeado.id));
-        localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
-
-        itemPresionado.agregado = true;
-
-        console.log('Item agregado');
-
-        ListaCompras.push(itemPresionado);
-
-
-        for (const itemPresionado of ListaCompras) {
-            $(".list-of-items").append(`<div class="contenedor-carrito-item card">
+for (const itemPresionado of ListaCompras) {
+    $(".container").append(`<div class="contenedor-carrito-item card">
             <img class="imagenCarrito" src=${itemPresionado.img}
             <h4>${itemPresionado.titulo}</h4>
             <p class="precio">Precio: ${itemPresionado.precio}</p>
             <p class="precio">${itemPresionado.temporada}</p>
             <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
-
-
+            
+            
             </div>`)
 
-            $("#btn1").click(() => {
+    $("#btn1").click(() => {
 
-                $(".contenedor-carrito-item").trigger("remove");
-                console.log("#btn1");
-            });
-
-
-        }
+        $(".contenedor-carrito-item").trigger("remove");
+        console.log("#btn1");
     });
-    guardarLocal(button.id, JSON.stringify(button));
 
-};
+
+}
+
+
+
 const productos = JSON.parse(localStorage.getItem('lista'));
 
 

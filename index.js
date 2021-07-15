@@ -133,181 +133,147 @@ ArrayProductos.sort(function(a, b) {
     return a.precio - b.precio
 })
 
-// const CatalogoProductos = [{
-//         id: 1,
-//         titulo: "Camiseta Cardinals",
-//         temporada: 2021,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 2199.00',
-//         img: "./img/cardinals.jpeg ",
-//     },
-//     {
-//         id: 2,
-//         titulo: "Camiseta Estrella",
-//         temporada: 2020,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 1899.00',
-//         img: "./img/estrella.jpeg "
-//     },
-//     {
-//         id: 3,
-//         titulo: "Camiseta Velocidad y Resistencia Vintage",
-//         temporada: 2019,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 2199.00',
-//         img: "./img/velocidad.jpeg "
+const CatalogoProductos = [{
+        id: 1,
+        titulo: "Camiseta Cardinals",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/cardinals.jpeg ",
+    },
+    {
+        id: 2,
+        titulo: "Camiseta Estrella",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1899.00',
+        img: "./img/estrella.jpeg "
+    },
+    {
+        id: 3,
+        titulo: "Camiseta Velocidad y Resistencia Vintage",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/velocidad.jpeg "
 
-//     },
-//     {
-//         id: 4,
-//         titulo: "Camiseta Velocidad y Resistencia",
-//         temporada: 2020,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 1799.00',
-//         img: "./img/velocidad2.jpeg "
-//     }, {
-//         id: 5,
-//         titulo: "Camiseta Bahiense del Norte",
-//         temporada: 2021,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 2199.00',
-//         img: "./img/bdn.jpeg "
-//     }, {
-//         id: 6,
-//         titulo: "Camiseta Reconquista",
-//         temporada: 2020,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 1899.00',
-//         img: "./img/reconquista.jpeg "
-//     }, {
-//         id: 7,
-//         titulo: "Camiseta Fireballs",
-//         temporada: 2019,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 1799.00',
-//         img: "./img/Fireballs.jpg"
-//     }, {
-//         id: 8,
-//         titulo: "Camiseta Academia Muresull",
-//         temporada: 2019,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 1799.00',
-//         img: "./img/futbol1.jpeg "
-//     },
-//     {
-//         id: 9,
-//         titulo: "Camiseta Campus Navallo-Agullo",
-//         temporada: 2021,
-//         talle: 3,
-//         stock: true,
-//         precio: '$ 2199.00',
-//         img: "./img/FullSizeRender-1.jpg "
-//     }
-// ];
+    },
+    {
+        id: 4,
+        titulo: "Camiseta Velocidad y Resistencia",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/velocidad2.jpeg "
+    }, {
+        id: 5,
+        titulo: "Camiseta Bahiense del Norte",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/bdn.jpeg "
+    }, {
+        id: 6,
+        titulo: "Camiseta Reconquista",
+        temporada: 2020,
+        talle: 3,
+        stock: true,
+        precio: '$ 1899.00',
+        img: "./img/reconquista.jpeg "
+    }, {
+        id: 7,
+        titulo: "Camiseta Fireballs",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/Fireballs.jpg"
+    }, {
+        id: 8,
+        titulo: "Camiseta Academia Muresull",
+        temporada: 2019,
+        talle: 3,
+        stock: true,
+        precio: '$ 1799.00',
+        img: "./img/futbol1.jpeg "
+    },
+    {
+        id: 9,
+        titulo: "Camiseta Campus Navallo-Agullo",
+        temporada: 2021,
+        talle: 3,
+        stock: true,
+        precio: '$ 2199.00',
+        img: "./img/FullSizeRender-1.jpg "
+    }
+];
 
-const jsonLocal = "./catalogo/catalogo.json";
-
-// $.getJSON(jsonLocal, function(data, estado) {
-// if (estado === "success") {
-//     let misDatos = data;
-
-//     const hijos = $('.dato');
-//     console.log(hijos);
-
-//     for (const dato of misDatos) {
-//         $(".cont").append(`<div class="contenedor-carrito-item card dato">
-//         <img class="imagenCarrito" src=${dato.img}
-//         <h4>${dato.titulo}</h4>
-//         <p class="precio">Precio: ${dato.precio}</p>
-//         <p class="precio">${dato.temporada}</p>
-//         <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
-
-
-//         </div>`)
-
-//         $("#btn1").click(() => {
-
-//             $(".contenedor-carrito-item").trigger("remove");
-//             console.log("#btn1");
-//         });
-
-
-
-//     }
-
-// };
 
 const section = document.querySelector('.contenedor-catalogo');
 
 console.log(section);
 
-$.getJSON(jsonLocal, function(data, estado) {
+for (const element of CatalogoProductos) {
 
-    let CatalogoProductos = data;
-    for (const element of CatalogoProductos) {
+    let div = document.createElement('div');
 
-
-        let div = document.createElement('div');
-
-        div.className = 'contenedor-carritocliente';
-
-        div.innerHTML = `
+    div.className = 'contenedor-carritocliente';
+    div.innerHTML = `<div data-aos="flip-up">
     <img class="row row-cols-1 row-cols-md-3 g-4 card h-100 tarjeta card-body card-img-top card-text card-footer " src=${element.img}>
     <h2>${element.titulo}</h2>
     <input class="talle-input" placeholder="Talle" type="number">
     <p>${element.precio}</p>
-    <button id=${element.id} class="btn btn-danger agregarCarrito">Agregar al Carrito</button>`
+    <button id=${element.id} class="btn btn-danger agregarCarrito">Agregar al Carrito</button>
+    </div>`
 
-        console.log(div);
+    console.log(div);
 
-        section.appendChild(div);
+    section.appendChild(div);
 
-
-
-    }
+};
 
 
-    const ListaCompras = [];
-    const buttons = document.getElementsByClassName('agregarCarrito');
-    console.log(ListaCompras);
-    const guardarLocal = (clave, valor) => {
-        localStorage.setItem(clave, valor);
+const ListaCompras = [];
 
-        for (const button of buttons) {
-            button.addEventListener('click', (event) => {
-                const buttonClickeado = event.target;
-                console.log(buttonClickeado.id);
-                const itemPresionado = data.find((id) => id.id === parseInt(buttonClickeado.id));
-                localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
+const buttons = document.getElementsByClassName('agregarCarrito');
 
-                itemPresionado.agregado = true;
+console.log(ListaCompras);
+const guardarLocal = (clave, valor) => {
+    localStorage.setItem(clave, valor);
+    JSON.stringify(ListaCompras);
+};
 
-                console.log('Item agregado');
+for (const button of buttons) {
+    button.addEventListener('click', (event) => {
+        const buttonClickeado = event.target;
+        console.log(buttonClickeado.id);
+        const itemPresionado = CatalogoProductos.find((id) => id.id === parseInt(buttonClickeado.id));
+        localStorage.setItem('itemPresionado', JSON.stringify(itemPresionado));
+        itemPresionado.agregado = true;
 
-                ListaCompras.push(itemPresionado)
-            });
-            guardarLocal(button.id, JSON.stringify(button));
-        };
+        console.log('Item agregado');
 
-    };
+        ListaCompras.push(itemPresionado)
+    });
+    guardarLocal(button.id, JSON.stringify(button));
+};
 
-    for (const itemPresionado of ListaCompras) {
-        $(".list").append(`<div class="contenedor-carrito-item card">
-            <img class="imagenCarrito" src=${itemPresionado.img}
-            <h4>${itemPresionado.titulo}</h4>
-            <p class="precio">Precio: ${itemPresionado.precio}</p>
-            <p class="precio">${itemPresionado.temporada}</p>
+
+const productos = JSON.parse(localStorage.getItem('lista'));
+
+const mostrarProductos = () => {
+    for (const itemPresionados of ListaCompras) {
+        $("#Carrito").append(`<div class="contenedor-carrito-item card">
+            <img class="imagenCarrito" src=${itemPresionados.img}
+            <h4>${itemPresionados.titulo}</h4>
+            <p class="precio">Precio: ${itemPresionados.precio}</p>
+            <p class="precio">${itemPresionados.temporada}</p>
             <button  class="btn btn-danger btn-sm" id="btn1">Eliminar</button>
-            
-            
             </div>`)
 
         $("#btn1").click(() => {
@@ -318,36 +284,5 @@ $.getJSON(jsonLocal, function(data, estado) {
 
 
     }
-});
-
-
-const productos = JSON.parse(localStorage.getItem('lista'));
-
-
-// $getJSON(jsonLocal, function(data, status) {
-//     let misDatos = data;
-//     pintarCards(misDatos);
-// })
-
-// const section = document.querySelector('.contenedor');
-
-// function pintarCards(array) {
-
-//     for (let element of array) {
-
-//         let div = document.createElement('div');
-
-//         div.className = 'card'
-
-//         div.innerHTML = `
-//         <img class="img-fluid center" src=${element.img}>
-//         <h2>${element.titulo}</h2>
-//         <p>$${element.precio}</p>
-//         <button class="btn btn-danger">Agregar al carrito</button>
-//         <button onclick="wsp('${element.titulo}',${element.precio})" class="btn btn-success">Consultar </button>`
-
-
-
-//         section.appendChild(div);
-
-//     }
+};
+mostrarProductos();

@@ -226,6 +226,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    float: inline-start;
 }
 
 .entradas {

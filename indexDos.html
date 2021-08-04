@@ -52,7 +52,37 @@
                                 <!-- <div id="containerProductos" class="container" style="display: block; width: 80px; height: 80px;">  -->
 
                             </div>
-                            <div class="container">
+                            <header id="header" class="header">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="four columns">
+                                            <img src="./img/FullSizeRender.jpg" id="logo" class="logo">
+                                        </div>
+                                        <div class="two columns u-pull-right">
+                                            <ul>
+                                                <li class="submenu">
+                                                    <img src="./img/carrito-de-compras.png" id="img-carrito" class="carritoCompras ">
+                                                    <div id="carrito">
+                                                        <table id="lista-carrito" class="u-full-width">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Imagen</th>
+                                                                    <th>Nombre</th>
+                                                                    <th>Precio</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+                                                        </table>
+                                                        <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <!-- <div class="container">
                                 <div class="carrito">
                                     <h5 class="cart-title">Tu carrito
                                         <hr>
@@ -61,7 +91,7 @@
                                 <div id="Carrito"></div>
 
 
-                            </div>
+                            </div> -->
 
                         </div>
         </div>
@@ -296,6 +326,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./index.js "></script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
